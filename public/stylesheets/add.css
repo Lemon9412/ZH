@@ -1,0 +1,69 @@
+form {
+	width: 600px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.input {
+	height: 40px;
+	padding: 5px;
+	width: 600px;
+}
+
+.border {
+	border: 1px solid #D1434A;
+}
+
+.mb30 {
+	margin-bottom: 30px;
+}
+.mt30 {
+	margin-top: 30px;
+}
+select {
+	width: 200px;
+	height: 40px;
+	padding: 5px 20px;
+}
+option:hover {
+	background: #D1434A;
+}
+.selected {
+	
+}
+form input:focus {
+	-webkit-box-shadow: 0 0 5px #D1434A;
+	-ms-box-shadow: 0 0 5px #D1434A;
+	-moz-box-shadow: 0 0 5px #D1434A;
+	-o-box-shadow: 0 0 5px #D1434A;
+	box-shadow: 0 0 5px #D1434A;
+	outline: 0;
+}
+
+.btn-res {
+	width: 150px;
+	height: 50px;
+	background-color: #fff;
+	border: 2px solid #D1434A;
+	margin-bottom: 30px;
+}
+.btn-res:hover {
+	background-color: #D1434A;
+	color: #fff;
+	-webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+.btn-sub {
+	width: 150px;
+	height: 50px;
+	color: #fff;
+	background-color: #D1434A;
+	border: 2px solid #D1434A;
+	margin-bottom: 30px;
+}
+.btn-sub:hover {
+	background-color: #fff;
+	color: #333;
+	-webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}

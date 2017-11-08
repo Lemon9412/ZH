@@ -1,0 +1,27 @@
+{
+  "status":0,
+  "message":"",
+  "result":[
+    {
+      "id":"100001",
+      "userName":"xuqiqi",
+      "cerName":"中级",
+      "cerNum":"100001"
+    },{
+      "id":"100002",
+      "userName":"xuqiqi",
+      "cerName":"中级",
+      "cerNum":"100001"
+    },{
+      "id":"100003",
+      "userName":"xuqiqi",
+      "cerName":"中级",
+      "cerNum":"100001"
+    },{
+      "id":"100004",
+      "userName":"xuqiqi",
+      "cerName":"中级",
+      "cerNum":"100001"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>中华婴幼儿营养保健协会</title>
+		<meta name="robots" content="noarchive">
+		<link rel="stylesheet" type="text/css" href="stylesheets/base.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/jHsDate.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/modal.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/table.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/add.css"/>
+		<script src="javascripts/lib/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/nav.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body onload="getDate()">
+		<header>
+			<nav class="xq_bag" id="bar3">
+				<ul class="xq_navbar">
+					<img class="w-150 rotate-45 fl" src="images/heart.png"/>
+					<li class="xq_navli"><a href="info.html">首页</a></li>
+					<li class="xq_navli"><a href="add.html">添加</a></li>
+					<li class="xq_navli"><a href="search.html">搜索</a></li>
+					<li class="xq_navli"><a href="back/b_index.html">后台管理</a></li>
+				</ul>
+				<ul class="login_nav">
+					<li class="loginli"><a href="#">qiqi</a></li>
+					<li class="loginli"><a href="#">退出登录</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="container" id="app">
+			<form>
+				<label for="name">姓    名：</label>
+				<input class="input border mb30" name="name" id="name" v-model="name" placeholder="请输入姓名..." autofocus="autofocus" />
+				
+				<label for="female">女</label>
+				<input class="border" type="radio" name="sex" id="female"  value="女" v-model="sex"  />
+				
+				<label for="male">男</label>
+				<input class="border" type="radio" name="sex" id="male"  value="男" v-model="sex"  /><br /><br />
+				
+				<label for="cerNum">证书编号：</label>
+				<input class="input border mb30" type="text" name="cerNum" id="cerNum" value="" v-model="cerNum" placeholder="请输入证书编号..." />
+				
+				<label for="idNum">身份证号码：</label>
+				<input class="input border mb30" type="text" name="idNum" id="idNum" value="" v-model="idNum" placeholder="请输入身份证号码..." />
+				
+				<label for="cerName">职业(工种)及等级：</label><br />
+				<select class="border mb30" name="cerName" v-model="cerName">
+				    <option class="border" value="保健医初级">保健医初级</option>
+				    <option class="border" value="保健医中级">保健医中级</option>
+				    <option class="border" value="保健医高级">保健医高级</option>
+				    <option class="border" value="保育员初级">保育员初级</option>
+				    <option class="border" value="保育员中级">保育员中级</option>
+				    <option class="border" value="保育员高级">保育员高级</option>
+				</select>
+				<br />
+				
+				<label for="cerDate">颁证日期：</label>
+				<input class="input border mb30" type="date" name="cerDate" id="cerDate" value="" v-model="cerDate" placeholder="请选择年月日" />
+
+				<label for="company">颁证单位：</label>
+				<input class="input border mb30" type="text" name="company" id="company" value="" v-model="company" placeholder="" />
+
+				<button class="btn-res fl" type="reset">重置</button>
+				<button class="btn-sub fr" type="button" @click="showPreview()">预览</button>
+			</form>
+			<div class="md-modal modal-msg md-modal-transition " id="showModal" v-bind:class="{'md-show':delFlag}">
+				<div class="md-modal-inner">
+					<div class="md-top">
+						<button class="md-close" @click="delFlag=false">关闭</button>
+					</div>
+					<table class="table table-condensed table-bordered">
+						<tr>
+							<td>姓名</td>
+							<td>{{name}}</td>
+						</tr>
+						<tr>
+							<td>性别</td>
+							<td>{{sex}}</td>
+						</tr>
+						<tr>
+							<td>证书编号</td>
+							<td>{{cerNum}}</td>
+						</tr>
+						<tr>
+							<td>身份证号码</td>
+							<td>{{idNum}}</td>
+						</tr>
+						<tr>
+							<td>职业(工种)及等级</td>
+							<td>{{cerName}}</td>
+						</tr>
+						<tr>
+							<td>颁证日期</td>
+							<td>{{cerDate}}</td>
+						</tr>
+						<tr>
+							<td>颁证单位</td>
+							<td>{{company}}</td>
+						</tr>
+					</table>
+					<div class="btn-wrap col-2">
+						<button class="btn btn--m" id="btnModalConfirm" @click="delFlag=false">确认</button>
+						<button class="btn btn--m btn--red" id="btnModalCancel" @click="delFlag=false">取消</button>
+					</div>
+				</div>
+			</div>
+			<div class="md-overlay" id="showOverLay" v-if="delFlag" @click="delFlag=false"></div>
+		</div>
+		<script src="javascripts/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/lib/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/add.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
