@@ -13,31 +13,36 @@ var date = function() {
 new Vue({
 	el:'#app',
 	data:{
-		name:'',
-		sex:'女',
-		cerNum:'',
-		idNum:'',
-		cerName:'',
-		cerDate:date(),
-		company:'中华婴幼儿保健协会',
+		info:{
+            name:'',
+            sex:'女',
+            cerNum:'',
+            idNum:'',
+            cerName:'',
+            cerDate:date(),
+            company:'中华婴幼儿保健协会'
+		},
 		delFlag:false
 	},
 	mounted:function() {
-		/*this.$nextTick(() => {
-			this.nowDate();
-		});*/
+
 	},
-	
 	computed:{
 		
 	},
 	methods:{
 		showPreview:function(){
 			this.delFlag=true;
-		}
-		/*nowDate:function(){
-			var Date = new Date();
-			return this.cerDate = Date.toLocaleDateString();
-		}*/
+		},
+        sub: function() {
+		    this.delFlag = false;
+            var formData = JSON.stringify(this.info); // 这里才是你的表单数据
+            console.log(formData);
+            this.$http.post('/add', formData).then(function(resp) {
+                // success callback
+            }, function(resp){
+                // error callback
+            });
+        }
 	}
-})
+});

@@ -30,24 +30,24 @@
 			</nav>
 		</header>
 		<div class="container" id="app">
-			<form>
+			<form @submit.prevent="submit">
 				<label for="name">姓    名：</label>
-				<input class="input border mb30" name="name" id="name" v-model="name" placeholder="请输入姓名..." autofocus="autofocus" />
+				<input class="input border mb30" name="name" id="name" v-model="info.name" placeholder="请输入姓名..." autofocus="autofocus" />
 				
 				<label for="female">女</label>
-				<input class="border" type="radio" name="sex" id="female"  value="女" v-model="sex"  />
+				<input class="border" type="radio" name="sex" id="female"  value="女" v-model="info.sex"  />
 				
 				<label for="male">男</label>
-				<input class="border" type="radio" name="sex" id="male"  value="男" v-model="sex"  /><br /><br />
+				<input class="border" type="radio" name="sex" id="male"  value="男" v-model="info.sex"  /><br /><br />
 				
 				<label for="cerNum">证书编号：</label>
-				<input class="input border mb30" type="text" name="cerNum" id="cerNum" value="" v-model="cerNum" placeholder="请输入证书编号..." />
+				<input class="input border mb30" type="text" name="cerNum" id="cerNum" value="" v-model="info.cerNum" placeholder="请输入证书编号..." />
 				
 				<label for="idNum">身份证号码：</label>
-				<input class="input border mb30" type="text" name="idNum" id="idNum" value="" v-model="idNum" placeholder="请输入身份证号码..." />
+				<input class="input border mb30" type="text" name="idNum" id="idNum" value="" v-model="info.idNum" placeholder="请输入身份证号码..." />
 				
 				<label for="cerName">职业(工种)及等级：</label><br />
-				<select class="border mb30" name="cerName" v-model="cerName">
+				<select class="border mb30" name="cerName" v-model="info.cerName">
 				    <option class="border" value="保健医初级">保健医初级</option>
 				    <option class="border" value="保健医中级">保健医中级</option>
 				    <option class="border" value="保健医高级">保健医高级</option>
@@ -58,10 +58,10 @@
 				<br />
 				
 				<label for="cerDate">颁证日期：</label>
-				<input class="input border mb30" type="date" name="cerDate" id="cerDate" value="" v-model="cerDate" placeholder="请选择年月日" />
+				<input class="input border mb30" type="date" name="cerDate" id="cerDate" value="" v-model="info.cerDate" placeholder="请选择年月日" />
 
 				<label for="company">颁证单位：</label>
-				<input class="input border mb30" type="text" name="company" id="company" value="" v-model="company" placeholder="" />
+				<input class="input border mb30" type="text" name="company" id="company" value="" v-model="info.company" placeholder="" />
 
 				<button class="btn-res fl" type="reset">重置</button>
 				<button class="btn-sub fr" type="button" @click="showPreview()">预览</button>
@@ -74,35 +74,35 @@
 					<table class="table table-condensed table-bordered">
 						<tr>
 							<td>姓名</td>
-							<td>{{name}}</td>
+							<td>{{info.name}}</td>
 						</tr>
 						<tr>
 							<td>性别</td>
-							<td>{{sex}}</td>
+							<td>{{info.sex}}</td>
 						</tr>
 						<tr>
 							<td>证书编号</td>
-							<td>{{cerNum}}</td>
+							<td>{{info.cerNum}}</td>
 						</tr>
 						<tr>
 							<td>身份证号码</td>
-							<td>{{idNum}}</td>
+							<td>{{info.idNum}}</td>
 						</tr>
 						<tr>
 							<td>职业(工种)及等级</td>
-							<td>{{cerName}}</td>
+							<td>{{info.cerName}}</td>
 						</tr>
 						<tr>
 							<td>颁证日期</td>
-							<td>{{cerDate}}</td>
+							<td>{{info.cerDate}}</td>
 						</tr>
 						<tr>
 							<td>颁证单位</td>
-							<td>{{company}}</td>
+							<td>{{info.company}}</td>
 						</tr>
 					</table>
 					<div class="btn-wrap col-2">
-						<button class="btn btn--m" id="btnModalConfirm" @click="delFlag=false">确认</button>
+						<button class="btn btn--m" id="btnModalConfirm" @click="sub()" type="submit">确认</button>
 						<button class="btn btn--m btn--red" id="btnModalCancel" @click="delFlag=false">取消</button>
 					</div>
 				</div>

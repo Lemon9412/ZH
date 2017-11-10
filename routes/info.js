@@ -8,14 +8,14 @@ router.post("/", function (req, resp) {
         collection.find().toArray(function (err,data) {
             resp.send(data);
         });
-        collection.remove({_id:req.body.id}).then(function(err,state) {
-            if(err) {
-                console.log("删除失败");
-                resp.send("-1");
-            } else {
-                resp.send({state:1});
-            }
-        });
+        // collection.remove({_id:req.body.id}).then(function(err,state) {
+        //     if(err) {
+        //         console.log("删除失败");
+        //         resp.send("-1");
+        //     } else {
+        //         resp.send({state:1});
+        //     }
+        // });
     }
 });
 
