@@ -4,9 +4,9 @@ var router = express.Router();
 
 router.post("/", function (req, resp) {
     if(req.session.curUser){
-       var info = req.body.formData;
+        var info = req.body;
         var collection = database.collection("users");
-        var cursor = collection.insert(info,function (err,state) {
+        collection.insert(req.body,function (err,state) {
             if(err) {
                 console.log("提交失败");
             } else {
@@ -14,7 +14,6 @@ router.post("/", function (req, resp) {
             }
         });
     }
-
 });
 
 module.exports = router;

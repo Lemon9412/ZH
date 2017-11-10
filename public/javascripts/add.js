@@ -37,11 +37,12 @@ new Vue({
         sub: function() {
 		    this.delFlag = false;
             var formData = JSON.stringify(this.info); // 这里才是你的表单数据
-            console.log(formData);
             this.$http.post('/add', formData).then(function(resp) {
-                // success callback
+                if(resp.state=1) {
+                    alert("提交成功");
+                }
             }, function(resp){
-                // error callback
+                alert("提交失败");
             });
         }
 	}
