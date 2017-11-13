@@ -16,14 +16,14 @@ new Vue({
 	methods:{
 		getInfoList:function() {
 			var _this = this;
-			this.$http.post("/info").then(function(req){
+			this.$http.post("/info/info").then(function(req){
 				console.log(req.data);
 				_this.infoList = req.data;
 			},function (req) {
 				console.info(req);
             });
 		},
-		delConfirm:function(req) {
+		delConfirm:function(item) {
 			this.delFlag=true;
 			this.curInfo=item;
 		},
@@ -32,7 +32,7 @@ new Vue({
 			console.log(this.curInfo._id);
 			var _id = this.curInfo._id;
 			this.delFlag=false;
-			this.$http.delete("/info",{id:_id}).then(function(req) {
+			this.$http.post("/info/delete",{id:_id}).then(function(req) {
                 this.infoList.splice(index,1);
 			},function(req) {
                 console.info(req);
